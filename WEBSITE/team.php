@@ -4,7 +4,6 @@
     <?php
     include_once 'Includes/Head.php';
     ?>
-    <title> Error 404 - where are you even going? </title>
 </head>
 
 <body>

@@ -35,7 +35,7 @@
             <p>Albert Einstein</p>
         </div>
     </div>
-    
+
     <div class="w3-hide-large w3-hide-small">
         <div class="w3-half">
             <p class="w3-center">
