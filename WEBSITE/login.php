@@ -12,7 +12,7 @@
         <?php include_once 'Includes/Header.php' ?>
     </header>
 
-    <main class="">
+    <main class="w3-padding-64">
 
     </main>
 

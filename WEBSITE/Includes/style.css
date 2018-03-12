@@ -5,6 +5,7 @@ footer{
 }
 
 main{
+    min-height: 100%;
 }
 
 body{

@@ -6,35 +6,60 @@
  * Time: 10:23
  */
 ?>
-<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
-    <!-- contact -->
-    <div class="w3-container w3-content w3-padding-64" style="max-width:800px" id="contact">
-        <h2 class="w3-wide w3-center">Contact</h2>
-        <p class="w3-opacity w3-center"><i>Any issue ? Just fill in the following form :</i></p>
-        <div class="w3-row w3-padding-32">
-            <div class="w3-col m6 w3-large w3-margin-bottom">
-                <i class="fa fa-map-marker" style="width:30px"></i>Epita Paris - Fr<br>
-                <i class="fa fa-phone" style="width:30px"></i> Phone: coming soon<br>
-                <i class="fa fa-envelope" style="width:30px"> </i> Email: comming soon<br>
-            </div>
-            <div class="w3-col m6">
-                <form action="" target="_blank">
-                    <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-                        <div class="w3-half">
-                            <input class="w3-input w3-border" type="text" placeholder="Username" required name="Name">
-                        </div>
-                        <div class="w3-half">
-                            <input class="w3-input w3-border" type="mail" placeholder="Email adress" required name="Email">
-                        </div>
-                    </div>
-                    <input class="w3-input w3-border" type="text" placeholder="Your issue" required name="Message">
-                    <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
-                </form>
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<footer class="w3-container w3-indigo w3-center" xmlns="http://www.w3.org/1999/html">
+    <div class="w3-hide-medium w3-mobile">
+        <div class="w3-quarter">
+            <p class="w3-center">
+                ©GotoBreak 2018 - 2020
+                <br>
+                <a href="https://www.gnu.org/licenses/gpl-3.0.fr.html" target="_blank">GENERAL PUBLIC LICENSE 3.0</a>
+            </p>
+            <h3>Social Media :</h3>
+            <div class="w3-xxlarge">
+                <i class="fa fa-facebook-square"></i>
+                <i class="fa fa-twitter-square"></i>
             </div>
         </div>
+        <div class="w3-quarter">
+            <h2>Sign up for our newsletter :</h2>
+            <form class="w3-container">
+                <input class="w3-input" type="email" required placeholder="username.firstname@email.com">
+                <button class="w3-btn w3-blue w3-left" type="submit">Register</button>
+            </form>
+        </div>
+        <div class="w3-half">
+            <p class="w3-xxlarge w3-serif">
+                <span style="font-size:70px">&#10077;</span>
+                <i>"Make it as simple as possible, but not simpler."</i></p>
+            <p>Albert Einstein</p>
+        </div>
     </div>
-
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    
+    <div class="w3-hide-large w3-hide-small">
+        <div class="w3-half">
+            <p class="w3-center">
+                ©GotoBreak 2018 - 2020
+                <br>
+                <a href="https://www.gnu.org/licenses/gpl-3.0.fr.html" target="_blank">GENERAL PUBLIC LICENSE 3.0</a>
+            </p>
+            <h3>Social Media :</h3>
+            <div class="w3-xxlarge">
+                <i class="fa fa-facebook-square"></i>
+                <i class="fa fa-twitter-square"></i>
+            </div>
+            <h2>Sign up for our newsletter :</h2>
+            <form class="w3-container">
+                <input class="w3-input" type="email" required placeholder="username.firstname@email.com">
+                <button class="w3-btn w3-blue w3-left" type="submit">Register</button>
+            </form>
+            <br>
+        </div>
+        <div class="w3-half">
+            <p class="w3-xxlarge w3-serif">
+                <span style="font-size:70px">&#10077;</span>
+                <i>"Make it as simple as possible, but not simpler."</i></p>
+            <p>Albert Einstein</p>
+        </div>
+    </div>
 </footer>
