@@ -6,6 +6,7 @@
  * Time: 09:51
  */
 ?>
+
 <div class="w3-display-container">
     <img src="/img/space-banner.jpg" class="w3-animate-opacity  " alt="Lights" style="width: 100%;max-height: 200px">
         <div class="w3-top">
