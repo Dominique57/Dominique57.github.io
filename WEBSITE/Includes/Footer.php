@@ -6,7 +6,6 @@
  * Time: 10:23
  */
 ?>
-<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <footer class="w3-container w3-indigo w3-center" xmlns="http://www.w3.org/1999/html">
     <div class="w3-hide-medium w3-mobile">
         <div class="w3-quarter">
@@ -28,7 +27,7 @@
                 <button class="w3-btn w3-blue w3-left" type="submit">Register</button>
             </form>
         </div>
-        <div class="w3-half">
+        <div class="w3-half w3-hide-small">
             <p class="w3-xxlarge w3-serif">
                 <span style="font-size:70px">&#10077;</span>
                 <i>"Make it as simple as possible, but not simpler."</i></p>
