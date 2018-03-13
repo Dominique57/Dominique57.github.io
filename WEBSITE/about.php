@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="w3-content w3-container w3-left w3-rest">
-                    <p>
+                    <p class="w3-hover-border-blue w3-padding w3-hover-shadow w3-hover-light-blue" style="border: 3px solid black;box-shadow: 2px 3px #000000;">
                         Féru d'informatique depuis ma jeunesse, tenter d'intégrer l'EPITA m'a paru une évidence dès que j'ai pris connaissance de l'existence de l'école.<br>
                         Geek dans l'âme, nerd, j'ai passé des milliers d'heures sur internet et des jeux vidéos tels que League of Legends, H1Z1: King of The Hill, Tetris, et de nombreux autres.<br>
                         Mais je n'ai pas fait que jouer durant toutes ces heures: j'ai fait de la modélisation sur Cinema 4D, de la retouche photo sur Photoshop, de la création de musique sur Ableton Live, accompagné de shows lumineux grâce à un Launchpad.<br>
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="w3-content w3-container w3-left w3-rest">
-                    <p>
+                    <p class="w3-hover-border-blue w3-padding w3-hover-shadow w3-hover-light-blue" style="border: 3px solid black;box-shadow: 2px 3px #000000;">
                         Depuis mes 7 ans lorsque j'ai découvert le jeu RollerCoaster Tycoon 3, je suis devenu un grand fan de jeu vidéos, notamment les jeux sandbox tel que Minecraft ou Factorio, mais aussi de jeux de rythme comme Stepmania ou Osu.<br>
                         C'est par cette occasion, en étant en contact avec les ordinateurs, que je me suis passionné d’informatique et un peu plus tard de code.<br>
                         J'ai passé beaucoup de temps avec Game Maker à créer des jeux de plateformes. Par ailleurs j'ai aussi créé un jeu Android sous Unity.<br>
@@ -84,7 +84,7 @@
                 </div>
 
                 <div class="w3-content w3-container w3-left w3-rest">
-                    <p>
+                    <p class="w3-hover-border-blue w3-padding w3-hover-shadow w3-hover-light-blue" style="border: 3px solid black;box-shadow: 2px 3px #000000;">
                         Depuis mon enfance, ma relation avec les jeux vidéos a toujours été ambiguë.<br>
                         Leur côté compétitif m’attirait tout autant que leur gameplay pouvait me rebuter, ce qui est probablement une des raisons pour laquelle je ne peux toujours pas aujourd’hui me dissocier du seul jeu qui m’amuse, Counter Strike : Global Offensive.<br>
                         J’avais alors entrepris d’acquérir les connaissances afin de réaliser mon propre jeu vidéo sous Unreal Engine 4.<br>
@@ -105,7 +105,7 @@
                 </div>
 
                 <div class="w3-content w3-container w3-left w3-rest">
-                    <p>
+                    <p class="w3-hover-border-blue w3-padding w3-hover-shadow w3-hover-light-blue" style="border: 3px solid #000000;box-shadow: 2px 3px #000000;">
                         Depuis quelques années maintenant, je suis intéressé par la sécurité informatique.<br>
                         Je voulais donc intégrer une école me permettant d'assimiler un maximum de connaissances dans ce domaine.<br>
                         Je suis allé à un salon de l’étudiant pour chercher une école qui serait à la hauteur de mes ambitions.<br>
