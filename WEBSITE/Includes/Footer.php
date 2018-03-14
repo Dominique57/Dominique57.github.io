@@ -16,8 +16,8 @@
             </p>
             <h3>Social Media :</h3>
             <div class="w3-xxlarge">
-                <i class="fa fa-facebook-square"></i>
-                <i class="fa fa-twitter-square"></i>
+                <a href="https://www.facebook.com/Hello-world-Officiel-1702536623146748/" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                <a href="https://twitter.com/Hello_world_dev/" target="_blank"><i class="fa fa-twitter-square"></i></a>
             </div>
         </div>
         <div class="w3-quarter">
@@ -44,8 +44,8 @@
             </p>
             <h3>Social Media :</h3>
             <div class="w3-xxlarge">
-                <i class="fa fa-facebook-square"></i>
-                <i class="fa fa-twitter-square"></i>
+                <a href="https://www.facebook.com/Hello-world-Officiel-1702536623146748/" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                <a href="https://twitter.com/Hello_world_dev/" target="_blank"><i class="fa fa-twitter-square"></i></a>
             </div>
             <h2>Sign up for our newsletter :</h2>
             <form class="w3-container">
