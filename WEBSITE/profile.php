@@ -18,10 +18,39 @@
 
 <main class="w3-light-grey">
 
+    <script>
+        function showResult(str) {
+            if (str.length==0) {
+                document.getElementById("livesearch").innerHTML="";
+                document.getElementById("livesearch").style.border="0px";
+                return;
+            }
+            if (window.XMLHttpRequest) {
+                // code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            } else {  // code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function() {
+                if (this.readyState==4 && this.status==200) {
+                    document.getElementById("livesearch").innerHTML=this.responseText;
+                    document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+                }
+            }
+            xmlhttp.open("GET","livesearch.php?q="+str,true);
+            xmlhttp.send();
+        }
+    </script>
+    <div class="w3-container">
+        <h2>Search player :</h2>
+        <input class="w3-input w3-border w3-padding" type="text" placeholder="Search for usernames.." onkeyup="showResult(this.value)">
+        <div id="livesearch"></div>
+        <br>
+    </div>
     <!-- Top container -->
     <div class="w3-bar w3-black w3-large" style="z-index:4">
         <button class="w3-hide-large w3-bar-item w3-button w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i> Menu</button>
-        <img src="/img/logo.png" class="w3-bar-item w3-left" style="width: 110px;height: 90px;"/>
+        <img src="/img/logo.png" class="w3-bar-item w3-left w3-hide-small" style="width: 110px;height: 90px;"/>
         <span class="w3-bar-item"><h1> Player info </h1></span>
         <button class="w3-bar-item w3-button w3-right w3-hover-text-light-grey" ><i class="fa fa-sign-out"></i> Sign out</button>
     </div>
@@ -89,19 +118,6 @@
             mySidebar.style.display = "none";
         }
     </script>
-
-    <?php
-    /*
-    $data = Database('_gplayer', "SELECT * from informations");
-    while ($donnees = $data->fetch()){
-        echo 'Player '.$donnees['pseudo'].', also called '.$donnees['firstName'].' '.$donnees['lastName'].' 
-        created hist account the '. $donnees['dateCreation'].' and can be contacted via email at '.$donnees['email'].' 
-        <br/> Fun fact he is the '.$donnees['id'].' user that registered on this website <br/>';
-    }
-    $data = null;
-    $donnees = null;
-    */
-    ?>
 </main>
 
 <footer>
