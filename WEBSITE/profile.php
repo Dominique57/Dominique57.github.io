@@ -44,7 +44,7 @@
     <div class="w3-container">
         <h2>Search player :</h2>
         <input class="w3-input w3-border w3-padding" type="text" placeholder="Search for usernames.." onkeyup="showResult(this.value)">
-        <div id="livesearch"></div>
+        <div id="livesearch" class="w3-container w3-white"></div>
         <br>
     </div>
     <!-- Top container -->
