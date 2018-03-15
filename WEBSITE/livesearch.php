@@ -12,7 +12,7 @@ if (strlen($q)>0) {
     $hint="";
     include_once 'Includes/Database/DbConnect.php';
     $database = "_gplayer";
-    $query = "SELECT pseudo FROM informations WHERE pseudo REGEXP '^[".$q."]'";
+    $query = "SELECT pseudo FROM informations WHERE pseudo REGEXP '^".$q."'";
     $result = Database($database, $query);
     $count = 0;
     while ($donnees = $result->fetch())
