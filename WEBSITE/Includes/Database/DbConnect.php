@@ -7,19 +7,17 @@
  */
 
 // Create connection
-function Database($db_name, $db_query){
+function Database($db_name){
     $servername = "localhost";
     $username = "root";
     $password = "root";
     try {
         $bdd = new PDO('mysql:host='.$servername.';dbname='.$db_name.'', $username, $password);
-        $data = $bdd->query($db_query);
-        $dbh = null;
     }
     catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage() . "<br/>";
         die();
     }
-    return $data;
+    return $bdd;
 }
 ?>

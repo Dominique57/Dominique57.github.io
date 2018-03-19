@@ -13,6 +13,7 @@ include_once 'Database/DbConnect.php';
 <link rel="stylesheet" href="/Includes/style.css" />
 <link rel="stylesheet" href="/Includes/w3.css" />
 
+<script src="/Includes/jquery.js"></script>
 <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
