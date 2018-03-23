@@ -26,7 +26,7 @@
                 </div>
 
                 <!-- right -->
-                <span class="w3-bar-item w3-button w3-padding-large w3-right" onclick="document.getElementById('id01').style.display='block'">Login</span>
+                <span class="w3-bar-item w3-button w3-padding-large w3-right" onclick="document.getElementById('id01').style.display='block'">Log in</span>
                 <a href="/profile.php" class="w3-bar-item w3-button w3-padding-large w3-right">Profile</a>
             </div>
         </div>
@@ -55,22 +55,63 @@ function myFunction() {
     x.className = x.className.replace(" w3-show", "");
     }
 }
+
+function openTab(evt, actionType) {
+    var i, x, tablinks;
+    x = document.getElementsByClassName("actionType_tab");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablink_tab");
+    for (i = 0; i < x.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" w3-grey", "");
+    }
+    document.getElementById(actionType).style.display = "block";
+    evt.currentTarget.className += " w3-grey";
+}
 </script>
 
 <div id="id01" class="w3-modal">
     <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
 
+        <div class="w3-bar w3-indigo w3-card">
+            <a class="w3-bar-item w3-button w3-xlarge tablink_tab w3-grey" onclick="openTab(event,'signin_tab')">Log in</a>
+            <a class="w3-bar-item w3-button w3-xlarge tablink_tab" onclick="openTab(event,'signup_tab')">Sign up</a>
+        </div>
         <div class="w3-center"><br>
-            <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+            <br>
+            <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-red w3-hover-light-gray w3-display-topright" title="Close Modal">&times;</span>
             <img src="/img/defaut-profile.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
         </div>
 
-        <form class="w3-container" action="/login.php">
+        <form class="w3-container actionType_tab" id="signin_tab" action="/login.php">
             <div class="w3-section">
                 <label><b>Username</b></label>
-                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="username" required>
                 <label><b>Password</b></label>
                 <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
+                <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
+                <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+            </div>
+        </form>
+
+        <form class="w3-container actionType_tab" id="signup_tab" action="/login.php" style="display: none">
+            <div class="w3-section">
+                <label><b>Username</b></label>
+                <input class="w3-input w3-border" type="text" placeholder="Enter Username" name="username" required> <br>
+                <label><b>Firstname</b></label>
+                <input class="w3-input w3-border" type="text" placeholder="Enter Firstname" name="firstname" required> <br>
+                <label><b>Lastname</b></label>
+                <input class="w3-input w3-border" type="text" placeholder="Enter Lastname" name="last   name" required> <br>
+                <label><b>Email</b></label>
+                <input class="w3-input w3-border" type="email" placeholder="Enter Email" name="email" required> <br>
+                <label><b>Confirm Email</b></label>
+                <input class="w3-input w3-border" type="email" placeholder="Confirm Email" name="email_conf" required> <br>
+                <label><b>Password</b></label>
+                <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="pswd" required> <br>
+                <label><b>Confirm Password</b></label>
+                <input class="w3-input w3-border" type="password" placeholder="Confirm Password" name="pswd_conf" required> <br>
+
                 <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
                 <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
             </div>

@@ -144,7 +144,6 @@
             </header>
             <div class="w3-container w3-content" style="min-height: 500px">
             <p>
-
             </p>
 
         <!-- End page content -->

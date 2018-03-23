@@ -14,7 +14,7 @@ if (strlen($q)>0) {
     $regex =  '^'.$q;
     $bdd = Database($database);
     try {
-        $req = $bdd->prepare("SELECT pseudo, id FROM informations WHERE pseudo REGEXP ?");
+        $req = $bdd->prepare("SELECT pseudo, id FROM informations WHERE pseudo REGEXP ? LIMIT 6");
         $req->execute(array($regex));
     }
     catch (PDOException $e) {
