@@ -64,5 +64,6 @@ else{
     return;
 }
 $bdd = null;
-$bdd = Database($database);
+$bdd = null;
+$database;
 ?>

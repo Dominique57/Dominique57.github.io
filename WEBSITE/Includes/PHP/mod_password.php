@@ -35,8 +35,8 @@ if($npaswd != $npaswd_conf) {
 }
 
 include_once __DIR__ . '\\..\\Database\\DbConnect.php';
-$database = "_gplayer";
-$hashed = GetServerHashed();
+$bdd = Database();
+$hashed = GetServerHashed($npaswd);
 
 try {
     $req = $bdd->prepare("UPDATE informations SET pass=:password WHERE id=:id");

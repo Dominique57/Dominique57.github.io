@@ -75,7 +75,7 @@ if($donnees = $req->fetch()){
     return;
 }
 $bdd = null;
-$bdd = Database($database);
+$bdd = Database();
 
 
 try {

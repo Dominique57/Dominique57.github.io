@@ -30,8 +30,7 @@ include_once 'Includes/session.php';
     else
         $power = -1;
 
-    $database = "_gplayer";
-    $bdd = Database($database);
+    $bdd = Database();
     try {
         $req = $bdd->prepare("SELECT * FROM informations WHERE id=?");
         $req->execute(array($id));

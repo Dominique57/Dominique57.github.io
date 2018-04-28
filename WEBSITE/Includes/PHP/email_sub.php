@@ -35,7 +35,7 @@ if($donnees = $req->fetch()){
     die();
 }
 $bdd = null;
-$bdd = Database($database);
+$bdd = Database();
 
 try {
     $req = $bdd->prepare("INSERT INTO newsletter (email, dateSub, isactive) 

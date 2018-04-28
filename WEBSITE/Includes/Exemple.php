@@ -13,7 +13,9 @@
     </header>
 
     <main class="">
-
+        <?php
+        session_destroy();
+        ?>
     </main>
 
     <footer>
