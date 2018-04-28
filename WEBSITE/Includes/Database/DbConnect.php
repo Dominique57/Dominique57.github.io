@@ -7,7 +7,7 @@
  */
 
 // Create connection
-function Database($db_name){
+function Database($db_name = "_gplayer"){
     $servername = "localhost";
     $username = "root";
     $password = "root";
@@ -19,5 +19,10 @@ function Database($db_name){
         die();
     }
     return $bdd;
+}
+
+function GetServerHashed($pswd){
+    $hashed = password_hash($pswd, PASSWORD_DEFAULT);
+    return $hashed;
 }
 ?>

@@ -26,8 +26,19 @@
                 </div>
 
                 <!-- right -->
-                <span class="w3-bar-item w3-button w3-padding-large w3-right" onclick="document.getElementById('id01').style.display='block'">Log in</span>
-                <a href="/profile.php" class="w3-bar-item w3-button w3-padding-large w3-right">Profile</a>
+                <?php
+                if(isset($_SESSION['isLogged']) && $_SESSION['isLogged']) {?>
+                    <span class="w3-bar-item w3-button w3-padding-large w3-right" onclick="document.location='/Includes/PHP/logout.php'"><i class="fa fa-sign-out"></i>Log out</span>
+                <?php } else { ?>
+                    <span class="w3-bar-item w3-button w3-padding-large w3-right" onclick="document.getElementById('id01').style.display='block'">Log in</span>
+                <?php }
+                $searchlink = '/profile.php';
+                $profilname = 'Profile';
+                if(IsLogged()) {
+                    $searchlink = $searchlink.'?q='. $_SESSION['id'];
+                    $profilname = $_SESSION['pseudo'];
+                } ?>
+                <a href="<?php echo $searchlink; ?>" class="w3-bar-item w3-button w3-padding-large w3-right"><?php echo $profilname; ?></a>
             </div>
         </div>
 
@@ -38,7 +49,6 @@
             <a href="/about.php" class="w3-bar-item w3-button w3-padding-large">About us</a>
             <a href="/contact.php" class="w3-bar-item w3-button w3-padding-large">Contact</a>
             <a href="/bug.php" class="w3-bar-item w3-button w3-padding-large">Report Bug</a>
-
         </div>
 </div>
 
@@ -84,36 +94,45 @@ function openTab(evt, actionType) {
             <img src="/img/defaut-profile.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
         </div>
 
-        <form class="w3-container actionType_tab" id="signin_tab" action="/login.php">
+        <form method="post" class="w3-container actionType_tab" id="signin_tab" action="/login.php">
             <div class="w3-section">
                 <label><b>Username</b></label>
-                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="username" required>
+                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="log_username"
+                       required pattern="^[0-9a-zA-Z.-_!\[\]|]{3,12}$" oninput="setCustomValidity('')" oninvalid="setCustomValidity('Please enter 3 - 12 letters and numbers and some special chars!')">
                 <label><b>Password</b></label>
-                <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
+                <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="log_pswd"
+                       required pattern="^[0-9a-zA-Z.-_!\[\]|@]{5,20}$" oninput="setCustomValidity('')" oninvalid="setCustomValidity('Please enter 5 - 20 letters, numbers or : . - _ ! [ ] | @    ! ')"> <br>
+
                 <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
                 <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
             </div>
         </form>
 
-        <form class="w3-container actionType_tab" id="signup_tab" action="/login.php" style="display: none">
+        <form method="post" class="w3-container actionType_tab" id="signup_tab" action="/login.php?tabchoice=1" style="display: none">
             <div class="w3-section">
                 <label><b>Username</b></label>
-                <input class="w3-input w3-border" type="text" placeholder="Enter Username" name="username" required> <br>
+                <input class="w3-input w3-border" type="text" placeholder="Enter Username" name="username"
+                       required pattern="^[0-9a-zA-Z-_!\[\]|]{3,12}$" oninput="setCustomValidity('')" oninvalid="setCustomValidity('Please enter 3 - 12 letters and numbers and some special chars!')"> <br>
                 <label><b>Firstname</b></label>
-                <input class="w3-input w3-border" type="text" placeholder="Enter Firstname" name="firstname" required> <br>
+                <input class="w3-input w3-border" type="text" placeholder="Enter Firstname" name="firstname"
+                       required pattern="^[a-zA-Z]{3,12}$" oninput="setCustomValidity('')" oninvalid="setCustomValidity('Please enter 3 - 12 letters !')"> <br>
                 <label><b>Lastname</b></label>
-                <input class="w3-input w3-border" type="text" placeholder="Enter Lastname" name="last   name" required> <br>
+                <input class="w3-input w3-border" type="text" placeholder="Enter Lastname" name="lastname"
+                       required pattern="^[a-zA-Z]{3,12}$" oninput="setCustomValidity('')" oninvalid="setCustomValidity('Please enter 3 - 12 letters !')"> <br>
                 <label><b>Email</b></label>
-                <input class="w3-input w3-border" type="email" placeholder="Enter Email" name="email" required> <br>
+                <input class="w3-input w3-border" type="email" placeholder="Enter Email" name="email"
+                       required pattern="^[\w\-\+]+(\.[\w\-]+)*@[\w\-]+(\.[\w\-]+)*\.[\w\-]{2,4}$" oninput="setCustomValidity('')" oninvalid="setCustomValidity('Please enter a valid email adress!')"> <br>
                 <label><b>Confirm Email</b></label>
-                <input class="w3-input w3-border" type="email" placeholder="Confirm Email" name="email_conf" required> <br>
+                <input class="w3-input w3-border" type="email" placeholder="Confirm Email" name="email_conf"
+                       required pattern="^[\w\-\+]+(\.[\w\-]+)*@[\w\-]+(\.[\w\-]+)*\.[\w\-]{2,4}$" oninput="setCustomValidity('')" oninvalid="setCustomValidity('Please enter a valid email adress!')"> <br>
                 <label><b>Password</b></label>
-                <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="pswd" required> <br>
+                <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="pswd"
+                       required pattern="^[0-9a-zA-Z.-_!\[\]|@]{5,20}$" oninput="setCustomValidity('')" oninvalid="setCustomValidity('Please enter 5 - 20 letters, numbers or : . - _ ! [ ] | @    ! ')"> <br>
                 <label><b>Confirm Password</b></label>
-                <input class="w3-input w3-border" type="password" placeholder="Confirm Password" name="pswd_conf" required> <br>
+                <input class="w3-input w3-border" type="password" placeholder="Confirm Password" name="pswd_conf"
+                       required pattern="^[0-9a-zA-Z.-_!\[\]|@]{5,20}$" oninput="setCustomValidity('')" oninvalid="setCustomValidity('Please enter 5 - 20 letters, numbers or : . - _ ! [ ] | @    ! ')"> <br>
 
-                <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
-                <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+                <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Sign up</button>
             </div>
         </form>
 

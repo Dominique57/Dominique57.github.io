@@ -1,3 +1,6 @@
+<?php
+include_once 'Includes/session.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,55 +20,56 @@
             <div class="w3-container w3-half w3-hide-medium w3-hide-small">
                 <div class="w3-content w3-container">
                     <h2 class="w3-wide w3-center">Contact Form</h2>
-                    <p class="w3-opacity w3-center"><i>Any issue ? Just fill in the following form :</i></p>
-                    <div class="w3-row w3-padding-32">
-                        <div class="w3-col m6 w3-large w3-margin-bottom">
-                            <i class="fa fa-map-marker" style="width:30px"></i> Epita Paris - Fr<br>
+                        <div class="w3-large w3-margin-bottom">
+                            <i class="fa fa-map-marker" style="width:30px"></i> Epita Paris<br>
                             <i class="fa fa-phone" style="width:30px"></i> Phone: coming soon<br>
                             <i class="fa fa-envelope" style="width:30px"> </i> Email: comming soon<br>
                         </div>
-                        <div class="w3-col m6">
-                            <form action="" target="_blank">
-                                <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-                                    <div class="w3-half">
-                                        <input class="w3-input w3-border" type="text" placeholder="Username" required name="Name">
-                                    </div>
-                                    <div class="w3-half">
-                                        <input class="w3-input w3-border" type="mail" placeholder="Email adress" required name="Email">
-                                    </div>
-                                </div>
-                                <input class="w3-input w3-border" type="text" placeholder="Your issue" required name="Message">
-                                <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="w3-container w3-hide-large">
-                <h2 class="w3-wide w3-center">Contact Form</h2>
-                <p class="w3-opacity w3-center"><i>Any issue ? Just fill in the following form :</i></p>
-                <div class="w3-row w3-padding-32">
-                    <div class="w3-col m6 w3-large w3-margin-bottom">
-                        <i class="fa fa-map-marker" style="width:30px"></i> Epita Paris - Fr<br>
-                        <i class="fa fa-phone" style="width:30px"></i> Phone: coming soon<br>
-                        <i class="fa fa-envelope" style="width:30px"> </i> Email: comming soon<br>
-                    </div>
-                    <div class="w3-col m6">
+                        <p class="w3-opacity w3-center"><i>Any issue ? Just fill in the following form :</i></p>
                         <form action="" target="_blank">
                             <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
                                 <div class="w3-half">
-                                    <input class="w3-input w3-border" type="text" placeholder="Username" required name="Name">
+                                    <input class="w3-input w3-border" type="text" placeholder="Username" name="Name"
+                                           required pattern="^[0-9a-zA-Z]{3,12}$" oninput="setCustomValidity('')" oninvalid="setCustomValidity('Please enter 3 - 12 letters and numbers !')">
                                 </div>
                                 <div class="w3-half">
-                                    <input class="w3-input w3-border" type="mail" placeholder="Email adress" required name="Email">
+                                    <input class="w3-input w3-border" type="email" placeholder="Email adress" name="Email"
+                                           required pattern="^[\w\-\+]+(\.[\w\-]+)*@[\w\-]+(\.[\w\-]+)*\.[\w\-]{2,4}$" oninput="setCustomValidity('')" oninvalid="setCustomValidity('Please enter a valid email adress!')">
                                 </div>
                             </div>
-                            <input class="w3-input w3-border" type="text" placeholder="Your issue" required name="Message">
+                            <textarea class="w3-input w3-border" type="text" style="height: 200px;resize: none;" placeholder="Your issue" name="Message"
+                                      required pattern="^.{1,500}$" oninput="setCustomValidity('')" oninvalid="setCustomValidity('Please enter 1 - 500 characters !')"></textarea>
                             <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
                         </form>
-                    </div>
                 </div>
             </div>
+            <div class="w3-hide-large">
+                <div class="w3-container w3-content">
+                    <h2 class="w3-wide w3-center">Contact Form</h2>
+                    <p class="w3-container w3-content w3-opacity w3-center w3-margin-bottom"><i>Any issue ? Just fill in the following form :</i></p>
+                    <div class="w3-large w3-content w3-third">
+                        <i class="fa fa-map-marker" style="width:30px"></i> Epita Paris<br><br class="w3-hide-small">
+                        <i class="fa fa-phone" style="width:30px"></i> Phone:<br class="w3-hide-small"> coming soon<br><br class="w3-hide-small">
+                        <i class="fa fa-envelope" style="width:30px"> </i> Email:<br class="w3-hide-small"> comming soon<br><br>
+                    </div>
+                    <form class="w3-twothird" action="" target="_blank">
+                        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                            <div class="w3-half">
+                                <input class="w3-input w3-border" type="text" placeholder="Username" name="Name"
+                                       required pattern="^[0-9a-zA-Z]{3,12}$" oninput="setCustomValidity('')" oninvalid="setCustomValidity('Please enter 3 - 12 letters and numbers !')">
+                            </div>
+                            <div class="w3-half">
+                                <input class="w3-input w3-border" type="email" placeholder="Email adress" name="Email"
+                                       required pattern="^[\w\-\+]+(\.[\w\-]+)*@[\w\-]+(\.[\w\-]+)*\.[\w\-]{2,4}$" oninput="setCustomValidity('')" oninvalid="setCustomValidity('Please enter a valid email adress!')">
+                            </div>
+                        </div>
+                        <textarea class="w3-input w3-border" type="text" style="height: 200px;resize: none;" placeholder="Your issue" name="Message"
+                                  required oninput="setCustomValidity('')" oninvalid="setCustomValidity('Please enter at least one character !)"></textarea>
+                        <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
+                    </form>
+                </div>
+            </div>
+
             <div class="w3-container w3-rest">
                 <div id="map" style="width:100%;height:400px">
                 </div>
