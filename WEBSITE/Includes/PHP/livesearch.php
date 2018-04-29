@@ -13,8 +13,8 @@ if (strlen($q)>0) {
     $regex =  '^'.$q;
     $bdd = Database();
     try {
-        $req = $bdd->prepare("SELECT pseudo, id FROM informations WHERE pseudo REGEXP ? LIMIT 5");
-        $req->execute(array($regex));
+        $req = $bdd->prepare("SELECT firstName, lastName, pseudo, id FROM informations WHERE pseudo REGEXP :reg or firstName REGEXP :reg or lastName REGEXP :reg LIMIT 5");
+        $req->execute(array('reg' => $regex));
     }
     catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage() . "<br/>";
@@ -25,7 +25,7 @@ if (strlen($q)>0) {
         $link = '/profile.php?q='.$donnees['id'];
         ?>
         <div onclick="document.location='<?php echo $link ?>'" class="w3-container w3-hover-light-blue w3-blue w3-padding w3-margin" style="cursor:pointer;">
-            <h5> <?php echo $donnees['pseudo'] . '<br />'; ?></h5>
+            <h6> <?php echo $donnees['firstName'].' '.$donnees['lastName'].' <br> '.$donnees['pseudo'] . '<br />'; ?></h6>
         </div>
         <?php
     }

@@ -121,7 +121,7 @@ include_once 'Includes/session.php';
             </div>
 
             <div id="Processing" class="w3-container bug" style="display:none">
-                <table class="w3-table-all">
+                <table class="w3-table-all w3-card-4 w3-responsive">
                     <tr class="w3-indigo w3-large">
                         <th style="width: 5%;">Bug ID</th>
                         <th style="width: 10%;">Author</th>
@@ -150,7 +150,7 @@ include_once 'Includes/session.php';
             </div>
 
             <div id="Fixed" class="w3-container bug" style="display:none">
-                <table class="w3-table-all">
+                <table class="w3-table-all w3-card-4 w3-responsive">
                     <tr class="w3-indigo w3-large">
                         <th style="width: 5%;">Bug ID</th>
                         <th style="width: 10%;">Author</th>
