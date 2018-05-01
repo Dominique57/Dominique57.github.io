@@ -114,28 +114,7 @@ include_once 'Includes/session.php';
                     <span><h3><strong><?php echo $pseudo; ?></strong>'s profile</h3></span>
                     <?php }
                     if(isset($id) && !empty($id)){
-                        $url_image_rank = '';
-                        switch ($power){
-                            case 0:
-                                $url_image_rank = 'img\Banned.png';
-                                break;
-                            case 1:
-                                $url_image_rank = 'img\User.png';
-                                break;
-                            case 2:
-                                $url_image_rank = 'img\Sponsor.png';
-                                break;
-                            case 3:
-                                $url_image_rank = 'img\Mod.png';
-                                break;
-                            case 4:
-                                $url_image_rank = 'img\Admin.png';
-                                break;
-                            default:
-                                $url_image_rank = 'img\Banned.png';
-                                break;
-                        }
-                        echo '<img style="width:110px" src="'.$url_image_rank.'">';
+                        echo '<img style="width:110px" src="'.GetPathRank($power).'">';
                     }
                     ?>
                 </div>

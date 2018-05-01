@@ -80,4 +80,23 @@ function GetUserRank($power){
             break;
     }
 }
+
+function GetPathRank($power){
+    switch ($power){
+        case 0:
+            return '\img\Banned.png';
+        case 1:
+            return '\img\User.png';
+        case 2:
+            return '\img\Sponsor.png';
+        case 3:
+            return '\img\Mod.png';
+        case 4:
+            return '\img\Admin.png';
+        default:
+            return '\img\Banned.png';
+    }
+}
+
+
 ?>

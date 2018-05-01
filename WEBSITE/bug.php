@@ -7,7 +7,6 @@ include_once 'Includes/session.php';
     <?php
     include_once 'Includes/Head.php';
     ?>
-    <title> Error 404 - where are you even going? </title>
 </head>
 
 <body>
@@ -18,6 +17,7 @@ include_once 'Includes/session.php';
     <main class="w3-padding-64">
         <h1 class="w3-center w3-xxxlarge"><b><i class="fa fa-bug"></i> Bug report :</b><br><br></h1>
         <div class="w3-container" style="min-height: 350px">
+            <p><em>You can also report bugs here <a href="https://github.com/SanderJSA/HelloWorld/issues/">(CLICK ME)</a> but we might be faster to handle bugs here !</em></p>
             <div class="w3-row w3-card-4">
                 <a href="javascript:void(0)" onclick="openCity(event, 'New');">
                     <div class="w3-xxlarge w3-red w3-bottombar w3-third tablink w3-hover-opacity w3-padding w3-border-black">New</div>

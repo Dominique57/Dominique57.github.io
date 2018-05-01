@@ -16,9 +16,7 @@ include_once 'Includes/session.php';
     </header>
 
     <main class="">
-        <?php
-        session_destroy();
-        ?>
+
     </main>
 
     <footer>
