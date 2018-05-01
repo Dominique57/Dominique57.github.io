@@ -11,7 +11,13 @@ include_once 'Includes/session.php';
 
 <body>
     <header>
-        <?php include_once 'Includes/Header.php' ?>
+        <?php include_once 'Includes/Header.php';
+        function human_filesize($bytes, $decimals = 2) {
+            $sz = 'BKMGTP';
+            $factor = floor((strlen($bytes) - 1) / 3);
+            return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor];
+        }
+        ?>
     </header>
 
     <main class="w3-padding-64">
@@ -60,10 +66,16 @@ include_once 'Includes/session.php';
                         <th style="width: 35%">Link : </th>
                     </tr>
                     <tr>
+                        <?php
+                        $filepath = 'img/KENNYPLAGUE.mp3';
+                        $filesize = 0;
+                        if(file_exists($filepath)) { $filesize = filesize($filepath); }
+                        $filesize = human_filesize($filesize, 3);
+                        ?>
                         <td class="w3-blue">Music</td>
                         <td>This is the background music of the game that has been made especially four our game.</td>
-                        <td> 0.97 mB</td>
-                        <td class="w3-green"><p><a href="/img/KENNYPLAGUE.mp3" download="music-gotobreak.mp3">Download now</a></p></td>
+                        <td><?php echo $filesize; ?></td>
+                        <td class="w3-green"><p><a href="<?php echo $filepath; ?>" download="music-gotobreak.mp3">Download now</a></p></td>
                     </tr>
                 </table>
             </div>
