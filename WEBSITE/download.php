@@ -47,6 +47,27 @@ include_once 'Includes/session.php';
                 </table>
             </div>
         </div>
+
+        <div class="w3-container" style="width: 90%;display: block; margin-left: auto;margin-right: auto;">
+            <br><br><br>
+            <h2 class="w3-content w3-center">Other component download links :</h2><br><br>
+            <div class="w3-responsive">
+                <table class="w3-table-all">
+                    <tr class="w3-indigo">
+                        <th style="width: 15%">Component : </th>
+                        <th style="width: 45%">Description : </th>
+                        <th style="width: 15%">Size : </th>
+                        <th style="width: 35%">Link : </th>
+                    </tr>
+                    <tr>
+                        <td class="w3-blue">Music</td>
+                        <td>This is the background music of the game that has been made especially four our game.</td>
+                        <td> 0.97 mB</td>
+                        <td class="w3-green"><p><a href="/img/KENNYPLAGUE.mp3" download="music-gotobreak.mp3">Download now</a></p></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </main>
 
     <footer>

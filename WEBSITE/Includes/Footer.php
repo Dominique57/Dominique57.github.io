@@ -28,7 +28,7 @@
                 <button class="w3-btn w3-blue w3-left" type="submit">Register</button>
             </form>
         </div>
-        <div class="w3-half w3-hide-small">
+        <div class="w3-half w3-hide-small" id="footer_quote">
             <p class="w3-xxlarge w3-serif">
                 <span style="font-size:70px">&#10077;</span>
                 <i>"Make it as simple as possible, but not simpler."</i></p>

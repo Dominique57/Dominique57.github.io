@@ -30,7 +30,7 @@ include_once 'Includes/session.php';
     else
         $power = -1;
 
-    $bdd = Database();
+    $bdd = Database($database);
     try {
         $req = $bdd->prepare("SELECT * FROM informations WHERE id=?");
         $req->execute(array($id));
