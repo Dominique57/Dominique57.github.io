@@ -18,7 +18,7 @@ include_once 'Includes/session.php';
     <h1 class="w3-center w3-xxxlarge"><b><i class="fa fa-home"></i> Home :</b><br></h1>
     <div class="w3-container w3-content w3-center">
         <div class="w3-container w3-content" style="padding-bottom: 30px">
-            <h1 class="w3-xxxlarge"><em>Gotobreak</em> by Hello world</h1>
+            <h1 class="w3-xxxlarge"><em>Hello world</em> by Gotobreak</h1>
         </div>
         <div class="w3-black">
             <!-- Automatic Slideshow Images -->

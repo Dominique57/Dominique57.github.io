@@ -39,7 +39,7 @@ if(!IsLogged()) {
             <div class="w3-orange w3-container w3-content w3-margin">
                 <p>
                     To do so, please click the login button (Top right) <br>
-                    If you don't have an account please consider creating one ! <br>
+                    If you don't have an account please consider creating one !<br>
                 </p>
             </div>
 

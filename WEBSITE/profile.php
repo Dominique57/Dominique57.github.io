@@ -101,15 +101,12 @@ include_once 'Includes/session.php';
         </div>
         <?php
         if(isset($_SESSION['gameToSave']) && !empty($_SESSION['gameToSave'])) {
+            $player1 = $_SESSION['gameToSave'][0];
+            $haswon = $_SESSION['gameToSave'][1];
             $_SESSION['gameToSave'] = null;
-            ?>
-            <div class="w3-green w3-content w3-container">
-                <h3>
-                    Your game has been saved ! <br>
-                    It is avaible in the history tab of your account !
-                </h3>
-            </div>
-            <?php
+            $URL="/game/insertmatch.php?p2=".$player1."&p1won=".$haswon;
+            echo "<script type='text/javascript'>document.location.href='{$URL}';</script>";
+            echo '<META HTTP-EQUIV="refresh" content="0;URL=' . $URL . '">';
         }
         ?>
         <!-- Sidebar/menu -->
@@ -170,8 +167,24 @@ include_once 'Includes/session.php';
 
             <div class="w3-container tab_content" id="tab_history" style="display: none">
                 <h2>History of played matches : </h2>
-                <p>This functionality has not been implemented yet !</p>
-                <p>Historique des matchs jouées avec quelques infos qu'on retrouve dans overview en general</p>
+                <?php
+                $bdd = Database();
+                try {
+                    $reqMatches = $bdd->prepare("SELECT * FROM matches WHERE id=:id LIMIT 20");
+                    $reqMatches->execute(array(
+                            "id" => $id));
+                }
+                catch (PDOException $e) {
+                    print "Erreur !: " . $e->getMessage() . "<br/>";
+                    die();
+                }
+                while ($donneesMatches = $reqMatches->fetch()){ ?>
+                    <div class="w3-container w3-margin">
+                        <div class="w3-col" style="width: 20%;"><h3><?php echo 'User : <br>'.$pseudo;?></h3></div>
+                        <div class="w3-col" style="width: 20%;"><h3><?php echo 'Opponenet<br>'.$donneesMatches['player2'];?></h3></div>
+                        <div class="w3-col" style="width: 40%;"><h3><?php echo 'User : '.$pseudo; if($donneesMatches['player1won']==1){ echo 'Lost';} else { echo 'Win';} echo ' ! '; ?></h3></h3></div>
+                    </div>
+                <?php } ?>
             </div>
 
             <?php
