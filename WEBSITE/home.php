@@ -15,10 +15,10 @@ include_once 'Includes/session.php';
 
 <main class="w3-padding-32">
 
-    <h1 class="w3-center w3-xxxlarge"><b><i class="fa fa-home"></i> Home :</b><br><br></h1>
+    <h1 class="w3-center w3-xxxlarge"><b><i class="fa fa-home"></i> Home :</b><br></h1>
     <div class="w3-container w3-content w3-center">
         <div class="w3-container w3-content" style="padding-bottom: 30px">
-            <h1 class="w3-xxxlarge"> Some text here</h1>
+            <h1 class="w3-xxxlarge"><em>Gotobreak</em> by Hello world</h1>
         </div>
         <div class="w3-black">
             <!-- Automatic Slideshow Images -->
@@ -46,10 +46,10 @@ include_once 'Includes/session.php';
         </div>
     </div>
     <div class="w3-container w3-content">
-        <h2> Insert review / comment here</h2>
+        <h2> There will be a video of the gameplay here</h2>
     </div>
     <div class="w3-container w3-content">
-        <h2> Insert some text and links here</h2>
+        <h2> There will be player comment here</h2>
     </div>
 
 </main>

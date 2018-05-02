@@ -18,8 +18,8 @@ include_once '../Includes/session.php';
 <main class="w3-container">
     <h1 class="w3-center w3-xxxlarge"><b><i class="material-icons" style="font-size:50px">forum</i> Forum :</b><br></h1>
     <?php
-    if(isset($_GET['id']))
-        $id = $_GET['id'];
+    if(isset($_GET['q']))
+        $id = $_GET['q'];
     else
         $id = 1;
 

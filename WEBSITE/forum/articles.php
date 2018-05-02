@@ -18,8 +18,8 @@ include_once '../Includes/session.php';
 <main class="w3-container">
     <h1 class="w3-center w3-xxxlarge"><b><i class="material-icons" style="font-size:50px">forum</i> Forum :</b><br></h1>
     <?php
-    if(isset($_GET['id']))
-        $id = $_GET['id'];
+    if(isset($_GET['q']))
+        $id = $_GET['q'];
     else
         $id = 1;
 
@@ -77,7 +77,7 @@ include_once '../Includes/session.php';
                     $donnees2 = $req2->fetch();
                     $req2 = null;
                     ?>
-                    <div class="w3-container w3-padding w3-margin w3-card" style="border: 1px grey solid" onclick="document.location='<?php echo '/forum/posts.php?id='.$donnees['id']; ?>'">
+                    <div class="w3-container w3-padding w3-margin w3-card" style="border: 1px grey solid" onclick="document.location='<?php echo '/forum/posts.php?q='.$donnees['id']; ?>'">
                         <div class="w3-col w3-right" style="width: 100px;"><span
                                     class="w3-right"><?php echo $donnees2[0]; ?> posts</span></div>
                         <div class="w3-rest">
