@@ -99,7 +99,19 @@ include_once 'Includes/session.php';
             <img src="/img/logo.png" class="w3-bar-item w3-left w3-hide-small" style="width: 110px;height: 90px;"/>
             <span class="w3-bar-item"><h1>Player info </h1></span>
         </div>
-
+        <?php
+        if(isset($_SESSION['gameToSave']) && !empty($_SESSION['gameToSave'])) {
+            $_SESSION['gameToSave'] = null;
+            ?>
+            <div class="w3-green w3-content w3-container">
+                <h3>
+                    Your game has been saved ! <br>
+                    It is avaible in the history tab of your account !
+                </h3>
+            </div>
+            <?php
+        }
+        ?>
         <!-- Sidebar/menu -->
         <div class="w3-container w3-third w3-collapse w3-white w3-animate-left" id="mySidebar"><br>
             <div class="w3-container w3-row">
