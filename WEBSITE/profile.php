@@ -170,7 +170,7 @@ include_once 'Includes/session.php';
                 <?php
                 $bdd = Database();
                 try {
-                    $reqMatches = $bdd->prepare("SELECT * FROM matches WHERE player1=:id LIMIT 20");
+                    $reqMatches = $bdd->prepare("SELECT * FROM matches WHERE player1=:id ORDER BY id DESC LIMIT 40");
                     $reqMatches->execute(array(
                             "id" => $id));
                 }
@@ -178,11 +178,13 @@ include_once 'Includes/session.php';
                     print "Erreur !: " . $e->getMessage() . "<br/>";
                     die();
                 }
-                while ($donneesMatches = $reqMatches->fetch()){ ?>
-                    <div class="w3-container w3-margin">
-                        <div class="w3-col" style="width: 20%;"><h3><?php echo 'User : <br>'.$pseudo;?></h3></div>
-                        <div class="w3-col" style="width: 20%;"><h3><?php echo 'Opponenet<br>'.$donneesMatches['player2'];?></h3></div>
-                        <div class="w3-col" style="width: 40%;"><h3><?php echo 'User : '.$pseudo; if($donneesMatches['player1won']==1){ echo 'Lost';} else { echo 'Win';} echo ' ! '; ?></h3></h3></div>
+                while ($donneesMatches = $reqMatches->fetch()){
+                    $win = !($donneesMatches['player1won'] == 1);
+                    ?>
+                    <div class="w3-container w3-margin w3-light-blue w3-border-black w3-round-large w3-card-4">
+                        <div class="w3-col w3-half"><h3><b>User:</b></h3><p style="font-size: 20px;"><em><?php echo $pseudo;?></em></p></div>
+                        <div class="w3-col w3-half"><h3><b>Opponenet:</b></h3><p style="font-size: 20px;"><em><?php echo $donneesMatches['player2'];?></em></p></div>
+                        <div style="width: 100%"><p style="font-size: 20px"><em class="w3-padding w3-round-large w3-<?php if($win){ echo 'green';}else{echo 'red';}?>"><?php if($win){ echo '  Win  ';} else {echo '  Loose  ';} ?></em></p></div>
                     </div>
                 <?php } ?>
             </div>
