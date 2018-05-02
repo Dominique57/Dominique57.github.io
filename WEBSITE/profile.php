@@ -170,7 +170,7 @@ include_once 'Includes/session.php';
                 <?php
                 $bdd = Database();
                 try {
-                    $reqMatches = $bdd->prepare("SELECT * FROM matches WHERE id=:id LIMIT 20");
+                    $reqMatches = $bdd->prepare("SELECT * FROM matches WHERE player1=:id LIMIT 20");
                     $reqMatches->execute(array(
                             "id" => $id));
                 }
