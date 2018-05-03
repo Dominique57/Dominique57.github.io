@@ -24,7 +24,7 @@ include_once 'Includes/session.php';
         <h1 class="w3-center w3-xxxlarge"><b><i class="	fa fa-download"></i> Download :</b><br><br></h1>
         <div class="w3-container" style="width: 90%;display: block; margin-left: auto;margin-right: auto;">
             <h2 class="w3-content w3-center">Download links :</h2><br><br>
-            <div class="w3-responsive">
+            <div class="w3-responsive w3-card-4">
                 <table class="w3-table-all">
                     <tr class="w3-indigo">
                         <th>Download type : </th>
@@ -39,7 +39,19 @@ include_once 'Includes/session.php';
                         <td class="w3-green"><p><a href="https://github.com/SanderJSA/HelloWorld" target="_blank">Download here</a></p></td>
                     </tr>
                     <tr>
+                        <?php
+                        $filepathGame = 'img/HelloWorld_by_GotoBreak.zip';
+                        $filesizeGame = 0;
+                        if(file_exists($filepathGame)) { $filesizeGame = filesize($filepathGame); }
+                        $filesizeGame = human_filesize($filesizeGame, 3);
+                        ?>
                         <td class="w3-blue">Direct download</td>
+                        <td>Windows</td>
+                        <td>32bits / 64 bits</td>
+                        <td class="w3-green"><p><a href="img/HelloWorld_by_GotoBreak.zip" download="HelloWorld_by_GotoBreak.zip">Download here (<?php echo $filesizeGame;?>)</a></p></td>
+                    </tr>
+                    <tr>
+                        <td class="w3-blue">Download installer</td>
                         <td>Windows</td>
                         <td>32bits / 64 bits</td>
                         <td class="w3-red">Not avaible for the moment</td>
@@ -57,7 +69,7 @@ include_once 'Includes/session.php';
         <div class="w3-container" style="width: 90%;display: block; margin-left: auto;margin-right: auto;">
             <br><br><br>
             <h2 class="w3-content w3-center">Other component download links :</h2><br><br>
-            <div class="w3-responsive">
+            <div class="w3-responsive w3-card-4">
                 <table class="w3-table-all">
                     <tr class="w3-indigo">
                         <th style="width: 15%">Component : </th>
