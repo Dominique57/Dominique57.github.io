@@ -15,12 +15,12 @@
                 <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
                 <a href="/home.php" class="w3-bar-item w3-button w3-padding-large">Home</a>
                 <a href="/presentation.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Presentation</a>
-                <a href="/blog.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Blog</a>
                 <a href="/forum/forum.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Forum</a>
                 <a href="/download.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Download</a>
                 <div class="w3-dropdown-hover w3-hide-small">
                     <button class="w3-padding-large w3-button" title="More">More <i class="fa fa-caret-down"></i></button>
                     <div class="w3-dropdown-content w3-indigo w3-bar-block w3-card-4">
+                        <a href="/blog.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Blog</a>
                         <a href="/about.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">About us</a>
                         <a href="/contact.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Contact</a>
                         <a href="/bug.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Report Bug</a>
@@ -47,8 +47,8 @@
         <!-- Navbar on small screens -->
         <div id="navDemo" class="w3-bar-block w3-indigo w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
             <a href="/presentation.php" class="w3-bar-item w3-button w3-padding-large">Presentation</a>
-            <a href="/blog.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Blog</a>
-            <a href="/forum/forum.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Forum</a>
+            <a href="/blog.php" class="w3-bar-item w3-button w3-padding-large">Blog</a>
+            <a href="/forum/forum.php" class="w3-bar-item w3-button w3-padding-large">Forum</a>
             <a href="/download.php" class="w3-bar-item w3-button w3-padding-large">Download</a>
             <a href="/about.php" class="w3-bar-item w3-button w3-padding-large">About us</a>
             <a href="/contact.php" class="w3-bar-item w3-button w3-padding-large">Contact</a>

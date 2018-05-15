@@ -141,8 +141,7 @@ include_once 'Includes/session.php';
                 <?php } ?>
                 <?php if(UserIsOnHisProfile($id)|| HasAccess(max(3, $power), $_SESSION['power'])) { ?>
                 <button onclick="Tabselector('tabl_setting', 'tab_setting')" id="tabl_setting" class="tab w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</button>
-                <br> <br>
-                <button onclick="Tabselector('tabl_message', 'tab_message')" id="tabl_message" class="tab w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw"></i> Messages</button>
+                <br> <br> <br>
                 <?php } ?>
             </div>
         </div>
@@ -161,8 +160,12 @@ include_once 'Includes/session.php';
 
             <div class="w3-container tab_content" id="tab_general" style="display: none">
                 <h2>General information : </h2>
-                <p>This functionality has not been implemented yet !</p>
-                <p>Je sais pas encore quoi mettre ici</p>
+                <h4><b>Basic information's : </b></h4>
+                <p><?php echo $fname.', '.$lname.'<br>AKA '.$pseudo ;?></p>
+                <h4><b>Contact the user : </b></h4>
+                <p><?php echo 'email : '.$email?></p>
+                <h4><b>Account creation date :</b></h4>
+                <p><?php echo 'Account created : '.$signup; ?></p>
             </div>
 
             <div class="w3-container tab_content" id="tab_history" style="display: none">
@@ -178,12 +181,15 @@ include_once 'Includes/session.php';
                     print "Erreur !: " . $e->getMessage() . "<br/>";
                     die();
                 }
-                while ($donneesMatches = $reqMatches->fetch()){
+                if($reqMatches->rowCount() == 0) {
+                    echo '<div class="w3-container w3-content w3-light-blue w3-margin w3-padding w3-card w3-round-large"><h3><em>This account has not any match history ... </em><br><b>Yet !</b></h3></div>';
+                }
+                while ($donneesMatches = $reqMatches->fetch()) {
                     $win = !($donneesMatches['player1won'] == 1);
                     ?>
                     <div class="w3-container w3-margin w3-light-blue w3-border-black w3-round-large w3-card-4">
                         <div class="w3-col w3-half"><h3><b>User:</b></h3><p style="font-size: 20px;"><em><?php echo $pseudo;?></em></p></div>
-                        <div class="w3-col w3-half"><h3><b>Opponenet:</b></h3><p style="font-size: 20px;"><em><?php echo $donneesMatches['player2'];?></em></p></div>
+                        <div class="w3-col w3-half"><h3><b>Opponent:</b></h3><p style="font-size: 20px;"><em><?php echo $donneesMatches['player2'];?></em></p></div>
                         <div style="width: 100%"><p style="font-size: 20px"><em class="w3-padding w3-round-large w3-<?php if($win){ echo 'green';}else{echo 'red';}?>"><?php if($win){ echo '  Win  ';} else {echo '  Loose  ';} ?></em></p></div>
                     </div>
                 <?php } ?>
@@ -192,7 +198,7 @@ include_once 'Includes/session.php';
             <?php
             if(HasAccess(max(3, $power), $_SESSION['power'])) {?>
 
-            <div class="w3-container tab_content" id="tab_moderation" style="display: none">
+                <div class="w3-container tab_content" id="tab_moderation" style="display: none">
                 <h1>User moderation : </h1>
                 <?php if(isset($_SESSION['reponse_edit_moderator']) && !empty($_SESSION['reponse_edit_moderator'])){
                     echo '<div class="w3-padding-top w3-margin-top w3-content w3-center w3-container w3-'.$_SESSION['color_edit_moderator'].'">
@@ -253,10 +259,11 @@ include_once 'Includes/session.php';
                 <?php } ?>
             </div>
 
-            <?php } ?>
-            <?php if(UserIsOnHisProfile($id) || HasAccess(max(3, $power), $_SESSION['power'])) {?>
+            <?php
+            }
+            if(UserIsOnHisProfile($id) || HasAccess(max(3, $power), $_SESSION['power'])) {?>
 
-            <div class="w3-container tab_content" id="tab_setting" style="display: none">
+                <div class="w3-container tab_content" id="tab_setting" style="display: none">
                 <div>
                     <h1>User Settings : </h1>
                     <?php if(isset($_SESSION['reponse_edit_setting']) && !empty($_SESSION['reponse_edit_setting'])){
@@ -304,11 +311,6 @@ include_once 'Includes/session.php';
                         </form>
                     </ul>
                 </div>
-            </div>
-
-            <div class="w3-container tab_content" id="tab_message" style="display: none">
-                <h2>All send messages : </h2>
-                <p>This functionality has not been implemented yet !</p>
             </div>
 
             <?php } ?>

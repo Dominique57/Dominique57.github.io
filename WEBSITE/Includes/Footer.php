@@ -98,7 +98,7 @@
         <div class="w3-modal-content w3-card-4">
             <div class="w3-container w3-green">
                 <span onclick="document.getElementById('confirmmodal').style.display='none'" class="w3-red w3-button w3-display-topright">&times;</span>
-                <h2>You successfully singed up ! </h2>
+                <h2>You successfully signed up ! </h2>
             </div>
             <div class="w3-container w3-text-black">
                 <h3>Your email address has been successfully added to our database.<br/>

@@ -15,7 +15,7 @@ include_once 'Includes/session.php';
     </header>
 
     <main class="w3-padding-64">
-        <h1 class="w3-center w3-xxxlarge"><b><i class="fa fa-bug"></i> Bug report :</b><br><br></h1>
+        <h1 class="w3-center w3-xxxlarge"><b><i class="fa fa-bug"></i> Bug report :</b><br></h1>
         <div class="w3-container" style="min-height: 350px">
             <p><em>You can also report bugs here <a href="https://github.com/SanderJSA/HelloWorld/issues/">(CLICK ME)</a> but we might be faster to handle bugs here !</em></p>
             <div class="w3-row w3-card-4">
@@ -98,7 +98,7 @@ include_once 'Includes/session.php';
                         <th style="width: 10%;">Title</th>
                         <th class="w3-rest">Description</th>
                         <?php if(isset($power) && $power >= 2) { ?>
-                        <th style="width: 5%;">Action</th>
+                        <th style="width: 10%;">Action</th>
                         <?php } ?>
                     </tr>
                     <?php
@@ -109,9 +109,12 @@ include_once 'Includes/session.php';
                             <td><?php echo $item['id']; ?></td>
                             <td><?php echo $item['author']; ?></td>
                             <td><?php echo $item['title']; ?></td>
-                            <td><?php echo $item['description']; ?></td>
-                            <?php if(isset($power) && $power >= 2) { ?>
-                                <td class="w3-right"><i class="material-icons">edit</i></td>
+                            <td><?php echo nl2br($item['description']); ?></td>
+                            <?php if(isset($power) && $power >= 2) {
+                                ?>
+                                <td class="w3-right w3-red"><i class="material-icons"><a href="/Includes/PHP/bug_edit.php?status=3&id=<?php echo $item['id']; ?>">delete_forever</a></i></td>
+                                <td class="w3-right w3-green"><i class="material-icons"><a href="/Includes/PHP/bug_edit.php?status=2&id=<?php echo $item['id']; ?>">edit</a></i></td>
+                                <td class="w3-right w3-orange"><i class="material-icons"><a href="/Includes/PHP/bug_edit.php?status=1&id=<?php echo $item['id']; ?>">edit</a></i></td>
                             <?php } ?>
                         </tr>
                         <?php
@@ -128,8 +131,9 @@ include_once 'Includes/session.php';
                         <th style="width: 10%;">Title</th>
                         <th class="w3-rest">Description</th>
                         <?php if(isset($power) && $power >= 2) { ?>
-                            <th style="width: 5%;">Action</th>
-                        <?php } ?>                    </tr>
+                            <th style="width: 10%;">Action</th>
+                        <?php } ?>
+                    </tr>
                     <?php
                     $increm = 0;
                     foreach ($processed as $item) {
@@ -138,9 +142,11 @@ include_once 'Includes/session.php';
                             <td><?php echo $item['id']; ?></td>
                             <td><?php echo $item['author']; ?></td>
                             <td><?php echo $item['title']; ?></td>
-                            <td><?php echo $item['description']; ?></td>
+                            <td><?php echo nl2br($item['description']); ?></td>
                             <?php if(isset($power) && $power >= 2) { ?>
-                                <td class="w3-right"><i class="material-icons">edit</i></td>
+                                <td class="w3-right w3-red"><i class="material-icons"><a href="/Includes/PHP/bug_edit.php?status=3&id=<?php echo $item['id']; ?>">delete_forever</a></i></td>
+                                <td class="w3-right w3-green"><i class="material-icons"><a href="/Includes/PHP/bug_edit.php?status=2&id=<?php echo $item['id']; ?>">edit</a></i></td>
+                                <td class="w3-right w3-red"><i class="material-icons"><a href="/Includes/PHP/bug_edit.php?status=0&id=<?php echo $item['id']; ?>">edit</a></i></td>
                             <?php } ?>
                         </tr>
                         <?php
@@ -157,7 +163,7 @@ include_once 'Includes/session.php';
                         <th style="width: 10%;">Title</th>
                         <th class="w3-rest">Description</th>
                         <?php if(isset($power) && $power >= 2) { ?>
-                            <th style="width: 5%;">Action</th>
+                            <th style="width: 10%;">Action</th>
                         <?php } ?>
                     </tr>
                     <?php
@@ -168,9 +174,11 @@ include_once 'Includes/session.php';
                             <td><?php echo $item['id']; ?></td>
                             <td><?php echo $item['author']; ?></td>
                             <td><?php echo $item['title']; ?></td>
-                            <td><?php echo $item['description']; ?></td>
+                            <td><?php echo nl2br($item['description']); ?></td>
                             <?php if(isset($power) && $power >= 2) { ?>
-                                <td class="w3-right"><i class="material-icons">edit</i></td>
+                                <td class="w3-right w3-red"><i class="material-icons"><a href="/Includes/PHP/bug_edit.php?status=3&id=<?php echo $item['id']; ?>">delete_forever</a></i></td>
+                                <td class="w3-right w3-orange"><i class="material-icons"><a href="/Includes/PHP/bug_edit.php?status=1&id=<?php echo $item['id']; ?>">edit</a></i></td>
+                                <td class="w3-right w3-red"><i class="material-icons"><a href="/Includes/PHP/bug_edit.php?status=0&id=<?php echo $item['id']; ?>">edit</a></i></td>
                             <?php } ?>
                         </tr>
                         <?php
@@ -220,7 +228,7 @@ include_once 'Includes/session.php';
         <div class="w3-container w3-content">
             <h1 class="w3-center w3-xxlarge"><b>Have found a bug? </b></h1>
         <?php
-        if (isset($_SESSION['isLogged']) && $_SESSION['isLogged']) { ?>
+        if (IsLogged() && HasAccess(1, $_SESSION['power'])) { ?>
             <h2 class="w3-center w3-large"><i>Please fill in the following form :</i></h2>
             <form action="/bug.php" method="post">
                 <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
@@ -233,13 +241,21 @@ include_once 'Includes/session.php';
                           required oninput="setCustomValidity('')" oninvalid="setCustomValidity('Please enter 1 - 500 characters !')"> <?php if(isset($_POST['message'])){echo $_POST['message'];} ?></textarea>
                 <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
             </form>
+        <?php } else if(IsLogged()&& IsBanned($_SESSION['power'])){ ?>
+            <div class="w3-panel w3-greyscale w3-content w3-container w3-center">
+                <h3>
+                    Your account has been <b>banned</b> for our services ! <br>
+                    You <b>can not</b> post bug reports if you are banned !
+                </h3>
+                <h4><i>Please consider the contact tab to make us re-consider your ban !</i></h4>
+            </div>
         <?php } else { ?>
             <div class="w3-panel w3-greyscale w3-content w3-container w3-center">
                 <h3>Consider <em>logging in</em> or <em>signing up</em> to submit new bug reports !<br>
                     And guess what? It is free ! <br>
                     <i class="fa fa-smile-o w3-xxlarge"></i></h3>
             </div>
-        <?php } ?>
+            <?php } ?>
         </div>
 
 

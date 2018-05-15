@@ -16,7 +16,7 @@ include_once '../Includes/session.php';
 </header>
 
 <main class="w3-container">
-    <h1 class="w3-center w3-xxxlarge"><b><i class="material-icons" style="font-size:50px">forum</i> Forum :</b><br></h1>
+    <h1 class="w3-center w3-xxxlarge"><b><i class="material-icons" style="font-size:50px">forum</i> Forum :</b><br></h1><br>
     <?php
     $bdd = Database();
     try {
@@ -29,7 +29,7 @@ include_once '../Includes/session.php';
     }
     ?>
 
-    <div class="w3-container w3-border w3-margin w3-padding w3-round-large">
+    <div class="">
         <div class="w3-container w3-padding">
             <?php
             $titles;
@@ -37,8 +37,8 @@ include_once '../Includes/session.php';
                 $titles[] = $donnees['title'];
                 $ids[] = $donnees['id'];
                 ?>
-                <div class="w3-container w3-blue w3-round-large w3-card" onclick="document.location='<?php echo '/forum/subsection.php?q='.$donnees['id']; ?>'">
-                    <h4><?php echo '-=' . $donnees['title'] . '=-' ?></h4>
+                <div class="w3-container w3-blue w3-round-large w3-card">
+                    <h4><?php echo '<a href="/forum/subsection.php?q='.$donnees['id'].'">-=' . $donnees['title'] . '=-</a>' ?></h4>
                 </div>
                 <?php
                 try {
@@ -64,13 +64,13 @@ include_once '../Includes/session.php';
                         $numbertopic = $donnes3[0];
                         $req3 = null;
                         ?>
-                        <div class="w3-container w3-grey" style="border: 1px gray solid" onclick="document.location='<?php echo '/forum/articles.php?q='.$donnees2['id']; ?>'">
-                            <div class="w3-col" style="width: 80px;"><img class="w3-margin" src="/img/news.png"></div>
+                        <div class="w3-grey" style="border: 1px gray solid">
+                            <div class="w3-col" style="width: 60px;"><img class="w3-margin" src="/img/news.png"></div>
                             <div class="w3-col w3-right" style="width: 100px;"><span class="w3-right"><?php echo $numbertopic; ?> topics</span>
                             </div>
                             <div class="w3-rest">
                                 <p>
-                                    <?php echo $donnees2['title'] . '<br>' . $donnees2['description']; ?>
+                                    <?php echo '<a href="/forum/articles.php?q='.$donnees2['id'].'" <b>'.$donnees2['title'].'</b></a><br>'.$donnees2['description']; ?>
                                 </p>
                             </div>
                         </div>
@@ -87,39 +87,39 @@ include_once '../Includes/session.php';
         <?php
         if(IsLogged() && HasAccess(3, $_SESSION['power'])) { ?>
             <div class="w3-container w3-margin w3-padding">
-                <h5>Add a subsection : </h5>
+                <h5>Add a section : </h5>
                 <form method="post" action="/forum/PHP/forumHandler.php">
                     <input type="hidden" name="form_add" value="ISSET">
-                    <input type="text" placeholder="Your subsection title" name="title_add" class="w3-margin-bottom"
+                    <input type="text" placeholder="Your section title" name="title_add"
                            required> <br>
                     <input type="submit">
                 </form>
-                <h5>Edit a subsection : </h5>
+                <h5>Edit a section : </h5>
                 <form method="post" action="/forum/PHP/forumHandler.php">
                     <input type="hidden" name="form_edit" value="ISSET">
-                    <select name="edit_choice" required class="w3-margin-bottom">
-                        <option value="" disabled selected>Choose a subsection</option>
+                    <select name="edit_choice" required>
+                        <option value="" disabled selected>Choose a section</option>
                         <?php
                         $length = count($ids);
                         for ($i = 0; $i < $length ; $i++) {
                             echo '<option value="'.$ids[$i].'">'.$titles[$i].'</option>';
                         } ?>
                     </select> <br>
-                    <input type="text" placeholder="Your new subsection title" name="title_edit" class="w3-margin-bottom"
+                    <input type="text" placeholder="Your edited section title" name="title_edit"
                            required> <br>
                     <input type="submit">
                 </form>
-                <h5>Delete a subsection : </h5>
+                <h5>Delete a section : </h5>
                 <form method="post" action="/forum/PHP/forumHandler.php">
                     <input type="hidden" name="form_del" value="ISSET">
                     <select name="del_choice" required>
-                        <option value="" disabled selected>Choose a subsection</option>
+                        <option value="" disabled selected>Choose a section</option>
                         <?php
                         $length = count($ids);
                         for ($i = 0; $i < $length ; $i++) {
                             echo '<option value="'.$ids[$i].'">'.$titles[$i].'</option>';
                         } ?>
-                    </select>
+                    </select> <br>
                     <input type="submit">
                 </form>
             </div>
