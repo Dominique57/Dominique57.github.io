@@ -95,7 +95,7 @@ include_once 'Includes/session.php';
     <div id="myProfile" style="min-height: 700px;">
         <!-- Top container : Bar -->
         <div class="w3-bar w3-black w3-large" style="z-index:4">
-            <button class="w3-hide-large w3-bar-item w3-button w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i> Menu</button>
+            <button class="w3-hide-large w3-hide-medium w3-bar-item w3-button w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i> Menu</button>
             <img src="/img/logo.png" class="w3-bar-item w3-left w3-hide-small" style="width: 110px;height: 90px;"/>
             <span class="w3-bar-item"><h1>Player info </h1></span>
         </div>
@@ -118,9 +118,9 @@ include_once 'Includes/session.php';
                 <div class="w3-col s8">
                     <?php
                     if (UserIsOnHisProfile($id)) { ?>
-                    <span><h3>Hi <strong><?php echo $pseudo; ?></strong></h3></span>
+                        <h3><span>Hi <strong><?php echo $pseudo; ?></strong></span></h3>
                     <?php } else { ?>
-                    <span><h3><strong><?php echo $pseudo; ?></strong>'s profile</h3></span>
+                        <h3><span><strong><?php echo $pseudo; ?></strong>'s profile</span></h3>
                     <?php }
                     if(isset($id) && !empty($id)){
                         echo '<img style="width:110px" src="'.GetPathRank($power).'">';
@@ -246,8 +246,8 @@ include_once 'Includes/session.php';
                 <h1>User moderation : </h1>
                 <?php if(isset($_SESSION['reponse_edit_moderator']) && !empty($_SESSION['reponse_edit_moderator'])){
                     echo '<div class="w3-padding-top w3-margin-top w3-content w3-center w3-container w3-'.$_SESSION['color_edit_moderator'].'">
-                                 <h3>'.$_SESSION['reponse_edit_moderator'].'</h3>
-                              </div> <br>';
+                            <h3>'.$_SESSION['reponse_edit_moderator'].'</h3>
+                          </div> <br>';
                     unset($_SESSION['reponse_edit_moderator'],$_SESSION['color_edit_moderator']);
                 } ?>
                 <h2> User rank : </h2>
