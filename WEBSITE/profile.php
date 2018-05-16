@@ -4,6 +4,7 @@ include_once 'Includes/session.php';
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="Includes/circle.css">
     <?php
     include_once 'Includes/Head.php';
     ?>
@@ -87,7 +88,6 @@ include_once 'Includes/session.php';
         <h2>Search player :</h2>
         <input class="w3-input w3-border w3-padding" type="text" placeholder="Search for usernames.." onkeyup="showResult(this.value)">
         <div id="livesearch" class="w3-white">
-
         </div>
         <br>
     </div>
@@ -149,13 +149,57 @@ include_once 'Includes/session.php';
         <!-- !PAGE CONTENT! -->
         <div class="w3-main w3-rest" style="margin-left:300px;margin-top:20px;">
             <div class="w3-container tab_content" id="tab_overview">
+                <?php
+                $bdd = Database();
+                try {
+                    $reqMatches = $bdd->prepare("SELECT player1won FROM matches WHERE player1=:id");
+                    $reqMatches->execute(array(
+                        "id" => $id));
+                }
+                catch (PDOException $e) {
+                    print "Erreur !: " . $e->getMessage() . "<br/>";
+                    die();
+                }
+                $won = 0;
+                $lost = 0;
+                $played = 0;
+                $wratio = 0;
+                while ($donnees = $reqMatches->fetch()) {
+                    if($donnees['player1won'] == "0" || $donnees['player1won'] == "2")
+                        $won++;
+                    else if($donnees['player1won'] == "1")
+                        $lost++;
+                    else
+                        $played++;
+                }
+                $played += $won + $lost;
+                if($played == 0)
+                    $wratio = 0;
+                else
+                    $wratio = round(($won / $played)*100);
+                $colorCircle = "red";
+                if($wratio >= 66)
+                    $colorCircle = "green";
+                else if ($wratio >= 33)
+                    $colorCircle = "orange";
+                ?>
                 <h2>Overview of your account : </h2>
-                <p>This functionality has not been implemented yet !</p>
-                <p>
-                    Cercle qui presente pourcentage win / tie / loose <br>
-                    tableau qui presente en fonction du temps le nombre de parties dans le-dit intervalle de temps <br>
-                    Idées? <br>
-                </p>
+                <h3 class="w3-margin-bottom"><b>Winning ratio :</b></h3>
+                <div style="width: 100%;">
+                    <div class="c100 big <?php echo 'p'.+$wratio.' '.$colorCircle ?>">
+                        <span><?php echo $wratio ?>%</span>
+                        <div class="slice">
+                            <div class="bar" style=""></div>
+                            <div class="fill"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w3-half">
+                    <p style="font-size: large"><b>Played matches : </b><?php echo $played ?></p>
+                    <p style="font-size: large"><b>Won matches : </b><?php echo $won ?></p>
+                    <p style="font-size: large"><b>Lost matches : </b><?php echo $lost ?></p>
+                </div>
+
             </div>
 
             <div class="w3-container tab_content" id="tab_general" style="display: none">
