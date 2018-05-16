@@ -16,7 +16,7 @@ include_once '../Includes/session.php';
 </header>
 
 <main class="w3-container">
-    <h1 class="w3-center w3-xxxlarge"><b><i class="material-icons" style="font-size:50px">forum</i> Forum :</b><br></h1><br>
+    <h1 class="w3-center w3-xxxlarge"><b><i class="material-icons" style="font-size:50px">forum</i> Forum :</b> Subsection<br></h1><br>
     <?php
     if(isset($_GET['q']))
         $id = $_GET['q'];
@@ -117,7 +117,7 @@ include_once '../Includes/session.php';
                     <input type="text" placeholder="Your new subsection title" name="title_edit"
                            required><br>
                     <textarea type="text" placeholder="Your new subsection description" name="text_edit" style="min-width: 300px;min-height: 50px;resize: none;"
-                              required></textarea>
+                              required></textarea> <br>
                     <input type="submit">
                 </form>
                 <h5>Delete a subsection : </h5>

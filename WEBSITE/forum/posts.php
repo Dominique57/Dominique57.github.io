@@ -16,7 +16,7 @@ include_once '../Includes/session.php';
 </header>
 
 <main class="w3-container">
-    <h1 class="w3-center w3-xxxlarge"><b><i class="material-icons" style="font-size:50px">forum</i> Forum :</b><br></h1><br>
+    <h1 class="w3-center w3-xxxlarge"><b><i class="material-icons" style="font-size:50px">forum</i> Forum :</b> Messages<br></h1><br>
     <?php
     if(isset($_GET['q']))
         $id = $_GET['q'];
