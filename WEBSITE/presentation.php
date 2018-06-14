@@ -27,7 +27,7 @@ include_once 'Includes/session.php';
                 </p>
             </div>
             <div class="w3-half w3-right">
-                <img src="img/GameScreen.PNG" style="width: 500px; height: 300px;">
+                <img src="img/game1.PNG" style="width: 500px; height: 300px;">
             </div>
         </div>
 

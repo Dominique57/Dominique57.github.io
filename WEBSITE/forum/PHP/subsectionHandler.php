@@ -55,7 +55,7 @@ if(isset($form_edit) && !empty($form_edit)) {
         $req->execute(array(
             'title' => $title_edit,
             'description' => $text_edit,
-            'id' => $page_id));
+            'id' => $edit_choice));
     }
     catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage() . "<br/>";

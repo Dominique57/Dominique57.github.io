@@ -45,6 +45,10 @@ function HasAccess($prequired, $userpower = -1){
     return $userpower >= $prequired;
 }
 
+function IsBanned($userpower = -1){
+    return $userpower == 0;
+}
+
 function UserIsOnHisProfile($idToCompare){
     return IsLogged() && !empty($idToCompare) && $_SESSION['id'] == $idToCompare;
 }
