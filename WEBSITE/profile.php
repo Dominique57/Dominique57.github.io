@@ -4,7 +4,6 @@ include_once 'Includes/session.php';
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="Includes/circle.css">
     <?php
     include_once 'Includes/Head.php';
     ?>
@@ -88,6 +87,7 @@ include_once 'Includes/session.php';
         <h2>Search player :</h2>
         <input class="w3-input w3-border w3-padding" type="text" placeholder="Search for usernames.." onkeyup="showResult(this.value)">
         <div id="livesearch" class="w3-white">
+
         </div>
         <br>
     </div>
@@ -95,7 +95,7 @@ include_once 'Includes/session.php';
     <div id="myProfile" style="min-height: 700px;">
         <!-- Top container : Bar -->
         <div class="w3-bar w3-black w3-large" style="z-index:4">
-            <button class="w3-hide-large w3-hide-medium w3-bar-item w3-button w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i> Menu</button>
+            <button class="w3-hide-large w3-bar-item w3-button w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i> Menu</button>
             <img src="/img/logo.png" class="w3-bar-item w3-left w3-hide-small" style="width: 110px;height: 90px;"/>
             <span class="w3-bar-item"><h1>Player info </h1></span>
         </div>
@@ -118,9 +118,9 @@ include_once 'Includes/session.php';
                 <div class="w3-col s8">
                     <?php
                     if (UserIsOnHisProfile($id)) { ?>
-                        <h3><span>Hi <strong><?php echo $pseudo; ?></strong></span></h3>
+                    <span><h3>Hi <strong><?php echo $pseudo; ?></strong></h3></span>
                     <?php } else { ?>
-                        <h3><span><strong><?php echo $pseudo; ?></strong>'s profile</span></h3>
+                    <span><h3><strong><?php echo $pseudo; ?></strong>'s profile</h3></span>
                     <?php }
                     if(isset($id) && !empty($id)){
                         echo '<img style="width:110px" src="'.GetPathRank($power).'">';
@@ -141,7 +141,8 @@ include_once 'Includes/session.php';
                 <?php } ?>
                 <?php if(UserIsOnHisProfile($id)|| HasAccess(max(3, $power), $_SESSION['power'])) { ?>
                 <button onclick="Tabselector('tabl_setting', 'tab_setting')" id="tabl_setting" class="tab w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</button>
-                <br> <br> <br>
+                <br> <br>
+                <button onclick="Tabselector('tabl_message', 'tab_message')" id="tabl_message" class="tab w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw"></i> Messages</button>
                 <?php } ?>
             </div>
         </div>
@@ -149,67 +150,19 @@ include_once 'Includes/session.php';
         <!-- !PAGE CONTENT! -->
         <div class="w3-main w3-rest" style="margin-left:300px;margin-top:20px;">
             <div class="w3-container tab_content" id="tab_overview">
-                <?php
-                $bdd = Database();
-                try {
-                    $reqMatches = $bdd->prepare("SELECT player1won FROM matches WHERE player1=:id");
-                    $reqMatches->execute(array(
-                        "id" => $id));
-                }
-                catch (PDOException $e) {
-                    print "Erreur !: " . $e->getMessage() . "<br/>";
-                    die();
-                }
-                $won = 0;
-                $lost = 0;
-                $played = 0;
-                $wratio = 0;
-                while ($donnees = $reqMatches->fetch()) {
-                    if($donnees['player1won'] == "0" || $donnees['player1won'] == "2")
-                        $won++;
-                    else if($donnees['player1won'] == "1")
-                        $lost++;
-                    else
-                        $played++;
-                }
-                $played += $won + $lost;
-                if($played == 0)
-                    $wratio = 0;
-                else
-                    $wratio = round(($won / $played)*100);
-                $colorCircle = "red";
-                if($wratio >= 66)
-                    $colorCircle = "green";
-                else if ($wratio >= 33)
-                    $colorCircle = "orange";
-                ?>
                 <h2>Overview of your account : </h2>
-                <h3 class="w3-margin-bottom"><b>Winning ratio :</b></h3>
-                <div style="width: 100%;">
-                    <div class="c100 big <?php echo 'p'.+$wratio.' '.$colorCircle ?>">
-                        <span><?php echo $wratio ?>%</span>
-                        <div class="slice">
-                            <div class="bar" style=""></div>
-                            <div class="fill"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="w3-half">
-                    <p style="font-size: large"><b>Played matches : </b><?php echo $played ?></p>
-                    <p style="font-size: large"><b>Won matches : </b><?php echo $won ?></p>
-                    <p style="font-size: large"><b>Lost matches : </b><?php echo $lost ?></p>
-                </div>
-
+                <p>This functionality has not been implemented yet !</p>
+                <p>
+                    Cercle qui presente pourcentage win / tie / loose <br>
+                    tableau qui presente en fonction du temps le nombre de parties dans le-dit intervalle de temps <br>
+                    Idées? <br>
+                </p>
             </div>
 
             <div class="w3-container tab_content" id="tab_general" style="display: none">
                 <h2>General information : </h2>
-                <h4><b>Basic information's : </b></h4>
-                <p><?php echo $fname.', '.$lname.'<br>AKA '.$pseudo ;?></p>
-                <h4><b>Contact the user : </b></h4>
-                <p><?php echo 'email : '.$email?></p>
-                <h4><b>Account creation date :</b></h4>
-                <p><?php echo 'Account created : '.$signup; ?></p>
+                <p>This functionality has not been implemented yet !</p>
+                <p>Je sais pas encore quoi mettre ici</p>
             </div>
 
             <div class="w3-container tab_content" id="tab_history" style="display: none">
@@ -225,15 +178,12 @@ include_once 'Includes/session.php';
                     print "Erreur !: " . $e->getMessage() . "<br/>";
                     die();
                 }
-                if($reqMatches->rowCount() == 0) {
-                    echo '<div class="w3-container w3-content w3-light-blue w3-margin w3-padding w3-card w3-round-large"><h3><em>This account has not any match history ... </em><br><b>Yet !</b></h3></div>';
-                }
-                while ($donneesMatches = $reqMatches->fetch()) {
+                while ($donneesMatches = $reqMatches->fetch()){
                     $win = !($donneesMatches['player1won'] == 1);
                     ?>
                     <div class="w3-container w3-margin w3-light-blue w3-border-black w3-round-large w3-card-4">
                         <div class="w3-col w3-half"><h3><b>User:</b></h3><p style="font-size: 20px;"><em><?php echo $pseudo;?></em></p></div>
-                        <div class="w3-col w3-half"><h3><b>Opponent:</b></h3><p style="font-size: 20px;"><em><?php echo $donneesMatches['player2'];?></em></p></div>
+                        <div class="w3-col w3-half"><h3><b>Opponenet:</b></h3><p style="font-size: 20px;"><em><?php echo $donneesMatches['player2'];?></em></p></div>
                         <div style="width: 100%"><p style="font-size: 20px"><em class="w3-padding w3-round-large w3-<?php if($win){ echo 'green';}else{echo 'red';}?>"><?php if($win){ echo '  Win  ';} else {echo '  Loose  ';} ?></em></p></div>
                     </div>
                 <?php } ?>
@@ -242,12 +192,12 @@ include_once 'Includes/session.php';
             <?php
             if(HasAccess(max(3, $power), $_SESSION['power'])) {?>
 
-                <div class="w3-container tab_content" id="tab_moderation" style="display: none">
+            <div class="w3-container tab_content" id="tab_moderation" style="display: none">
                 <h1>User moderation : </h1>
                 <?php if(isset($_SESSION['reponse_edit_moderator']) && !empty($_SESSION['reponse_edit_moderator'])){
                     echo '<div class="w3-padding-top w3-margin-top w3-content w3-center w3-container w3-'.$_SESSION['color_edit_moderator'].'">
-                            <h3>'.$_SESSION['reponse_edit_moderator'].'</h3>
-                          </div> <br>';
+                                 <h3>'.$_SESSION['reponse_edit_moderator'].'</h3>
+                              </div> <br>';
                     unset($_SESSION['reponse_edit_moderator'],$_SESSION['color_edit_moderator']);
                 } ?>
                 <h2> User rank : </h2>
@@ -303,11 +253,10 @@ include_once 'Includes/session.php';
                 <?php } ?>
             </div>
 
-            <?php
-            }
-            if(UserIsOnHisProfile($id) || HasAccess(max(3, $power), $_SESSION['power'])) {?>
+            <?php } ?>
+            <?php if(UserIsOnHisProfile($id) || HasAccess(max(3, $power), $_SESSION['power'])) {?>
 
-                <div class="w3-container tab_content" id="tab_setting" style="display: none">
+            <div class="w3-container tab_content" id="tab_setting" style="display: none">
                 <div>
                     <h1>User Settings : </h1>
                     <?php if(isset($_SESSION['reponse_edit_setting']) && !empty($_SESSION['reponse_edit_setting'])){
@@ -355,6 +304,11 @@ include_once 'Includes/session.php';
                         </form>
                     </ul>
                 </div>
+            </div>
+
+            <div class="w3-container tab_content" id="tab_message" style="display: none">
+                <h2>All send messages : </h2>
+                <p>This functionality has not been implemented yet !</p>
             </div>
 
             <?php } ?>

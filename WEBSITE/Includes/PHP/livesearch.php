@@ -24,8 +24,8 @@ if (strlen($q)>0) {
     {
         $link = '/profile.php?q='.$donnees['id'];
         ?>
-        <div class="w3-container w3-hover-light-blue w3-blue w3-padding w3-margin" style="cursor:pointer;">
-            <h6><?php echo '<a href="'.$link.'">'.$donnees['firstName'].' '.$donnees['lastName'].' <br> '.$donnees['pseudo'] . '</a><br />'; ?></h6>
+        <div onclick="document.location='<?php echo $link ?>'" class="w3-container w3-hover-light-blue w3-blue w3-padding w3-margin" style="cursor:pointer;">
+            <h6> <?php echo $donnees['firstName'].' '.$donnees['lastName'].' <br> '.$donnees['pseudo'] . '<br />'; ?></h6>
         </div>
         <?php
     }
