@@ -51,16 +51,34 @@ include_once 'Includes/session.php';
                         <td class="w3-green"><p><a href="img/HelloWorld_by_GotoBreak.zip" download="HelloWorld_by_GotoBreak.zip">Download here (<?php echo $filesizeGame;?>)</a></p></td>
                     </tr>
                     <tr>
+                        <?php
+                        $filepathGame = 'img/HelloWorldSetup.exe';
+                        $filesizeGame = 0;
+                        if(file_exists($filepathGame)) { $filesizeGame = filesize($filepathGame); }
+                        $filesizeGame = human_filesize($filesizeGame, 3);
+                        ?>
                         <td class="w3-blue">Download installer</td>
                         <td>Windows</td>
                         <td>32bits / 64 bits</td>
-                        <td class="w3-red">Not avaible for the moment</td>
+                        <td class="w3-red"><a href="img/HelloWorldSetup.exe" download="HelloWorldSetup.exe">(<?php /* echo $filesizeGame; */ ?>)</a>Not avaible for the moment</td>
                     </tr>
                     <tr>
                         <td class="w3-blue">Torrent Download</td>
                         <td>Windows</td>
                         <td>32bits / 64 bits</td>
                         <td class="w3-red">Not avaible for the moment</td>
+                    </tr>
+                    <tr>
+                        <?php
+                        $filepathGame = 'img/serveur.zip';
+                        $filesizeGame = 0;
+                        if(file_exists($filepathGame)) { $filesizeGame = filesize($filepathGame); }
+                        $filesizeGame = human_filesize($filesizeGame, 3);
+                        ?>
+                        <td class="w3-blue">Server Executable</td>
+                        <td>Windows / Linux</td>
+                        <td>32bits / 64 bits</td>
+                        <td class="w3-green"><a href="img/serveur.zip" download="serveur.zip">Download here (<?php echo $filesizeGame;?>)</a></td>
                     </tr>
                 </table>
             </div>

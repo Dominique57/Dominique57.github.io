@@ -21,9 +21,12 @@ include_once 'Includes/session.php';
             <div class="w3-half w3-left">
                 <h2> The World : </h2>
                 <p>
-                    The game takes place in [...] <br>
-                    The game takes place in [...] <br>
-                    The game takes place in [...] <br>
+                    <i>
+                        December 12th. A meteorite plummets to the Earth. <br>
+                        What distinguishes it of another meteorite? It contains a deadly virus that aims to destroy humanity. <br>
+                        Two camps will be in confrontation : the virus trying to annihilate humanity, and  humanity trying to eliminate the threat. <br>
+                        Will you be able to save humanity, will you protect it? Or... Will you prefer to help to destroy it?
+                    </i>
                 </p>
             </div>
             <div class="w3-half w3-right">
@@ -38,7 +41,7 @@ include_once 'Includes/session.php';
                 <h2> Abilities :</h2>
                 <p>
                     Both Attacker and Defender have unique abilities. <br>
-                    You will find those abilities in the following tables.
+                    Their respective objectives are to infect as much people as possible, but also to kill them without burying the virus with them and to make researches of the virus to determine its characteristics and find an antidote.<br>
                 </p>
             </div>
             <div class="w3-half w3-left">
@@ -48,6 +51,7 @@ include_once 'Includes/session.php';
 
         <br><br>
 
+        <?php /*
         <div class="w3-container w3-content">
             <div class="w3-half">
                 <h2> Attacker :</h2>
@@ -57,6 +61,7 @@ include_once 'Includes/session.php';
                         <th>Description : </th>
                         <th>Effect : </th>
                     </tr>
+
                 </table>
             </div>
             <div class="w3-half">
@@ -70,6 +75,7 @@ include_once 'Includes/session.php';
                 </table>
             </div>
         </div>
+ */ ?>
 
     </main>
 
